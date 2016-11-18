@@ -1,0 +1,8 @@
+Template="smallworld";
+limit="10";
+email="kimsalsan12@gmail.com";
+password="";
+name="Kimsal";
+https://www.google.com/settings/security/lesssecureapps
+
+

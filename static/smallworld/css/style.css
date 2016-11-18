@@ -1,0 +1,251 @@
+
+  /*------------------------------------------Search------------------------------------------------------*/
+
+.navbar-form .form-control {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*------------------------------------------End Search------------------------------------------------------*/
+
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.navbar-form .form-control {
+    display: inline-block;
+    max-width: 700px;
+    vertical-align: middle;
+}
+
+.btn-default1{
+    background-color: #fff; 
+    border-color: #fff; 
+    color: #27AE60; 
+    padding: 10px; 
+    width: 180px;
+    transition: 0.5s;
+}
+.btn-default:hover{
+    background-color: #fff;
+    border-color: #fff;
+    color: #0a8;
+    transition: 0.5s;
+}
+.header1{
+    height: 70px;
+    background-color: #0a8;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.logo{
+    max-width: 35%;
+}
+
+/*search*/
+a{
+    color:#fff;
+    text-decoration: none;
+}
+.photo{
+    border:2px solid #0a8;
+}
+h4{
+    font-family: 'Righteous', cursive;
+    color:#0a8;
+}
+p{
+    color: #000;
+}
+h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #0a8;
+}
+span{
+    font-family: 'Hammersmith One', sans-serif;
+}
+a:hover{
+    text-decoration: none;
+    color:#FEC606;
+}
+.con1{
+    background-color:#0a8; 
+    height:155px; 
+    margin-top:60px;
+}
+h3,h2{
+    font-family: 'Fjalla One', sans-serif;
+}
+h4{
+    font-family: 'Righteous', cursive;
+}
+.h3-title{
+    color: #000;
+}
+a h3:hover{
+    color: #48AD01;
+    transition: 0.5s;
+}
+button,input{
+    font-family: 'Hammersmith One', sans-serif;   
+}
+p{
+    margin: 0px;
+}
+small{
+    padding-left: 20px;
+    font-size: 10px;
+}
+.story{
+    border: 1px solid green;
+    padding: 5px;
+}
+.his-point{
+    background-color: #53DF83; 
+    margin:1px; 
+    padding:10px;
+}
+.border{
+    border-color:red;
+    border: 2px solid #0a8;
+    margin-top: 10px;
+}
+
+/*navbar*/
+.navbar-brand>img {
+    display: block;
+    max-width: 97px;
+}
+.navbar-brand{
+    padding: 0px;
+}
+.navbar-default {
+    background-color: #0a8;
+}
+.navbar{
+    border-radius: 0px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    background-color: green;
+    transition: 0.5s;
+}
+.container-fluid{
+    padding-left: 18%;
+}
+@media screen and (max-width: 770px) {
+    .container-fluid{
+    padding-left: 15px;
+}
+}
+.panel{
+    border-radius: 4px;
+    border:1px solid #0a8;
+}
+.panal1{
+    background-color: #0a8;
+    padding: 5px;
+}
+p{
+    padding: 5px;
+}
+/*modal*/
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+.photos{
+    cursor: pointer;
+}
+.panal1{
+    color:#fff;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+h3 {
+    text-align: center;
+    color: #0a8;
+}
+.background{
+    height: 600px;
+    background: url(../img/smallworld-img/img1.jpg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.contant-img{
+    background-color: rgba(0, 170, 136, 0.65);
+    height: 500px;
+}
+@media screen and (max-width: 770px) {
+    .contant-img{
+        background-color: rgba(0, 170, 136, 0.65);
+        height: 600px;
+}
+.h3-title{
+    color: #000;
+    margin-top: 60px;
+}
+}
+.h4-price-tile{
+    color: #fff;
+    font-size: 23px;
+}
+.h4-price{
+    color: #fff;
+    font-size: 20px;
+    padding-left: 20px;
+}
+.logo-single{
+    max-width: 50%;
+}
+.footer{
+    background-color: #00aa88;
+    margin-top: 10px;
+}

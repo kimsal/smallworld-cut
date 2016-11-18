@@ -1,0 +1,114 @@
+
+h5{
+  text-align: center;
+}
+/*navbar*/
+.navbar-default {
+    background-color: #D8335B;
+    border-color: black;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    background-color: #D2D7D3;
+}
+/*end navbar*/
+.container {
+    width: 100%;
+}
+a:hover{
+  text-decoration: none;
+}
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h5{
+  font-family: 'Baloo Paaji', cursive;
+  font-size: 20px;
+}
+
+p{
+  font-family: 'Dosis', sans-serif;
+}
+p a{
+  color: #b6c200;
+}
+
+/*overlay on img*/
+
+.carousel-caption {
+    position: absolute;
+    padding: 0px;
+    left: 0px;
+    margin-bottom: 160px;
+    background: rgba(0,0,0,0.4);
+    max-width: 293.33px;
+}
+
+/*end overlay on img*/
+
+
+
+
+/*beside slide menu*/
+.center-menu{margin:30px auto; float:none;}
+.center-menu ul{width:100%; padding-left:0;}
+.center-menu ul li{width:100%; min-height:30px; margin-bottom:2px; background:#f4f4f4; list-style:none; padding:10px; 
+font-family:"open sans", serif ;
+   font-size:12px;}
+.center-menu ul li i{font-size:10px; color:#ccc; padding-right:5px;}
+ 
+.center-menu ul li a{color:#4f4f4f; display:block; text-decoration:none; width:100%;}
+.center-menu ul li:nth-child(1){border-right: 5px solid #8d54a3}
+.center-menu ul li:nth-child(2){border-right: 5px solid #6CC437}
+.center-menu ul li:nth-child(3){border-right: 5px solid #f28c1d}
+.center-menu ul li:nth-child(4){border-right: 5px solid #e94979}
+.center-menu ul li:nth-child(5){border-right: 5px solid #00B0F0}
+.center-menu ul li:nth-child(6){border-right: 5px solid #cc3333}
+.center-menu ul li:nth-child(7){border-right: 5px solid #FABE09}
+.center-menu ul li:nth-child(8){border-right: 5px solid #e94979}
+.center-menu ul li:nth-child(9){border-right: 5px solid #8d54a3}
+.center-menu ul li:nth-child(10){border-right: 5px solid #6CC437}
+.center-menu ul li:nth-child(11){border-right: 5px solid #f28c1d}
+.center-menu ul li:nth-child(12){border-right: 5px solid #e94979}
+.center-menu ul li:nth-child(13){border-right: 5px solid #00B0F0}
+.center-menu ul li:nth-child(14){border-right: 5px solid #F46652}
+.center-menu ul li:nth-child(15){border-right: 5px solid #FABE09}
+.center-menu ul li:nth-child(16){border-right: 5px solid #6CC437}
+.center-menu ul li:nth-child(17){border-right: 5px solid #f28c1d}
+.center-menu ul li:nth-child(18){border-right: 5px solid #e94979}
+.center-menu ul li:nth-child(19){border-right: 5px solid #00B0F0}
+.center-menu ul li:nth-child(20){border-right: 5px solid #F46652}
+.center-menu ul li:nth-child(21){border-right: 5px solid #FABE09}
+
+
+
+
+.center-menu ul li:hover a{color:#fff; text-decoration:none;}
+.center-menu ul li:nth-child(1):hover{background-color:#8d54a3}
+.center-menu ul li:nth-child(2):hover{background-color:#6CC437}
+.center-menu ul li:nth-child(3):hover{background-color:#f28c1d}
+.center-menu ul li:nth-child(4):hover{background-color:#e94979}
+.center-menu ul li:nth-child(5):hover{background-color:#00B0F0}
+.center-menu ul li:nth-child(6):hover{background-color:#cc3333}
+.center-menu ul li:nth-child(7):hover{background-color:#FABE09}
+.center-menu ul li:nth-child(8):hover{background-color:#e94979}
+.center-menu ul li:nth-child(9):hover{background-color:#8d54a3}
+.center-menu ul li:nth-child(10):hover{background-color:#6CC437}
+.center-menu ul li:nth-child(11):hover{background-color:#f28c1d}
+.center-menu ul li:nth-child(12):hover{background-color:#e94979}
+.center-menu ul li:nth-child(13):hover{background-color:#00B0F0}
+.center-menu ul li:nth-child(14):hover{background-color:#F46652}
+.center-menu ul li:nth-child(15):hover{background-color:#FABE09}
+.center-menu ul li:nth-child(16):hover{background-color:#6CC437}
+.center-menu ul li:nth-child(17):hover{background-color:#f28c1d}
+.center-menu ul li:nth-child(18):hover{background-color:#e94979}
+.center-menu ul li:nth-child(19):hover{background-color:#00B0F0}
+.center-menu ul li:nth-child(20):hover{background-color:#F46652}
+.center-menu ul li:nth-child(21):hover{background-color:#FABE09}
