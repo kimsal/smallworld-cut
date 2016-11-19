@@ -1,16 +1,22 @@
 {% include template_name+'/header2.html' %}
-
+{%for post in page_object%}
+<style type="text/css">
+	.element.style{
+		background-color: white;
+	}
+</style>
 <div class="container">
-	<h2 style="color: #0a8; text-align:center;">ABOUT US</h2>
+{%if post.title=='About us'%}
+	<h2 style="color: #0a8; text-align:center;">{{post.title}}</h2>
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="padding:0px;">
 		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-		{%for post in spirits%}
+		
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="padding:0px;">
 				<h3 style="color:#0a8">The Spirit</h3>
 				<div class="panel padel-defualt">
 					<div class="panal1">
 						<center>
-							<p style="color:#fff;"><b>{{post.id}} - {{post.title}}</b></p>
+							<p style="color:#fff;"><b>{{post.title}}</b></p>
 						</center>
 					</div>
 					<p>
@@ -19,12 +25,16 @@
 				</div>
 
 			</div>
-			{%endfor%}
+			
 		</div>
 
 		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-			<h3 style="color:#0a8">Startups</h3>
+			{%set help=0%}
 			{%for p in startup%}
+			{%if help==0%}
+				<h3 style="color:#0a8">Startups</h3>
+			{%endif%}
+			{%set help = help+1%}
 			<div class="row">
 				<div class="panel padel-defualt" style="margin-top:5px;padding:10px;">
 				<!-- <img src="/static/{{template_name}}/img/photo1.jpg" class="img-responsive"> -->
@@ -37,6 +47,15 @@
 			{%endfor%}
 		</div>
 	</div>
-</div>
+{%else%}
+	<div class="col-xs-12 col-sm-12">
+		<h2 style="color: green; text-align:center;"> {{post.title}}</h2>
+	</div>
+	<div class="col-xs-12 col-sm-12">
+		{{post.description|safe}}
+	</div>
+{%endif%}
 
+</div>
+{%endfor%}
 {% include template_name+'/footer2.html' %}

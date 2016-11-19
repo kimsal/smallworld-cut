@@ -1,130 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>smallworld</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword" content="">
-    <meta name="author" content="">
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji|Dosis" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <!-- jQuery library -->
-    <script src="js/jquery-3.1.0.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <style type="text/css">
-    	h3{
-    		text-align: center;
-    		color:green;
-    	}
-    </style>
-    
-
-</head>
-
-<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"><img src="img/logo.png" class="img-responsive"></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="About-us.html">ABOUT US</a></li>
-        <li><a href="what's-up.html">WHAT'S UP</a></li>
-        <li><a href="Spaces.html">SPACE</a></li>
-        <li><a href="Team.html">TEAM</a></li>
-      </ul>
-      <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+{% include template_name+'/header2.html' %}
 
 
 <div class="container">
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<center>
-			<h2>SMALLWORLD</h2>
-			<p>House #17, St. 604, Toul Kork, Phnom Penh, Cambodia</p>
-		</center>
-		<div class="background">
-            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-                <center>
-                    <img src="img/logo.png" class="img-responsive logo-single">
-                </center>
-            </div> 
-            <div class="contant-img col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                <h3 style="color:#fff; font-size:25px;">PRICES</h3>
-                <h4 class="h4-price-tile"> COWORKING SPACE</h4>
-                <h4 class="h4-price">Mobile Desk: 30$</h4>
-                <h4 class="h4-price">Fix Desk: 60$</h4> <br>
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+    {%for post in post_object%}
+    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    		<center>
+    			<h2>{{post.title}}</h2>
+    			
+    		</center>
+    		<div class="background">
+                 <p>
+                 {{post.description|safe}}
+                 </p>
+            </div>
+    	</div>
+        {%endfor%}
+    </div>
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="margin-bottom:50px;">
 
-                <h4 class="h4-price-tile"> Private Office with A/C</h4>
-                <h4 class="h4-price">room 3m*3m: 150$</h4>
-                <h4 class="h4-price">room 4m*3m: 175$</h4> <br>
+        <div class="fb-page" data-href="https://www.facebook.com/khlathom.net/?ref=bookmarks" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/khlathom.net/?ref=bookmarks" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/khlathom.net/?ref=bookmarks">Khlathom.net</a></blockquote></div>
 
-                <h4 class="h4-price-tile"> Private Office with A/C</h4>
-                <h4 class="h4-price">room 3m*3m: 150$</h4>
-                <h4 class="h4-price">room 4m*3m: 175$</h4>
-            </div>      
-        </div>
-	</div>
-</div>
-
-<div class="container" style="padding:30px;">
-    <h3>See the map here</h3>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.6989122173604!2d104.89123754797092!3d11.573428696322079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095176107e45fb%3A0xd4050445961ddaaf!2sSmallWorld+Cambodia!5e0!3m2!1sen!2skh!4v1474617357034" frameborder="0" style="border:0; width:100%; height: 400px; " allowfullscreen ></iframe>
+    </div>
 </div>
 
 
 
-<footer>
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 "></div>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-			<center>
-				<a href="index.html">
-					<img src="img/logo.png" class="img-responsive" style="max-width:30%;">
-				</a>
-				<a href="https://www.google.com.kh/maps/place/SmallWorld+Cambodia/@11.5734287,104.8905132,17z/data=!3m1!4b1!4m5!3m4!1s0x31095176107e45fb:0xd4050445961ddaaf!8m2!3d11.5734287!4d104.8927019">
-	                   <p style="color:#fff;">House #17, St. 604, Toul Kork, Phnom Penh, Cambodia</p>
-	           	</a>
-	            <p style="color:#fff;">
-	                    Copyright © 2016 SmallWorldCambodia
-	            </p>
-			</center>
-		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 "></div>
-	</div>
-</footer>
 
-
-</body>
-
-</html>
+{% include template_name+'/footer2.html' %}

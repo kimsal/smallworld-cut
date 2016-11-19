@@ -199,27 +199,9 @@
           </div>
       </div>
     </article>
-     <article class="col-sm-9 col-md-9 col-lg-9">
-      <div class="form-group">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            {{ form.price(class_="form-control price",placeholder="Price ...") }}
-          </div>
-      </div>
-    </article>
-    <article class="col-sm-9 col-md-9 col-lg-9">
-      <div class="form-group">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            {{ form.priceebook(class_="form-control priceebook",placeholder="price Ebook ...") }}
-          </div>
-      </div>
-    </article>
-    <article class="col-sm-9 col-md-9 col-lg-9">
-      <div class="form-group">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            {{ form.map(class_="form-control",rows="2",placeholder="Map ...") }}
-          </div>
-      </div>
-    </article>
+   
+  
+   
     <article class="col-sm-9 col-md9 col-lg-9">
       <div class="col-md-12 col-xs-12 co-md-12 col-lg-12 other_image">
         More Images (optional)
@@ -333,7 +315,6 @@ $(".btn-save").click(function(){
      loadOldImages("{{p.images}}");
      $("#short_description").append("{{p.short_description}}");
      $("#price").attr('value',"{{p.price}}");
-     $("#map").html("{{p.map}}");
   });
   //Don't display button browse for feature image
   $('input#feature_image[name="feature_image"]').css('display','none');

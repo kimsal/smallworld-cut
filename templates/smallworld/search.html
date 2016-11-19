@@ -1,0 +1,28 @@
+{% include template_name+'/header2.html' %}
+<div class="container">
+	<h2 style="color: green; text-align:center;">Search result for <b>" {{search}} "</b> </h2>
+	{%for post in posts%}
+
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+		<a href="/{{post.slug}}">
+			<h3 style="color:green !important">
+				{{post.title}}
+			</h3>
+		</a>
+		<a href="/{{post.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;">
+		<span class="searchHighlight" style="border-radius: 0px !important;">
+		{{post.description|safe|truncate(200)}}
+		</p>     
+            
+	</div>
+	{%endfor%}
+	{%for page in page%}
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+		<h3 style="font-family: Arial, HelveticaNeue-Light, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 1.1; margin-bottom: 10px; font-size: 24px; color: rgb(90, 90, 90); border-radius: 0px !important;"><a href="/{{page.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;"><span class="searchHighlight" style="border-radius: 0px !important;">
+		{{page.description|safe|truncate(200)}}
+		</p>     
+            
+	</div>
+	{%endfor%}
+</div>		
+{% include template_name+'/footer2.html' %}

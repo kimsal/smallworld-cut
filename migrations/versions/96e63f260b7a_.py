@@ -1,17 +1,19 @@
 """empty message
 
-Revision ID: c608dc708454
-Revises: None
-Create Date: 2016-11-12 21:28:08.680271
+Revision ID: 96e63f260b7a
+Revises: 
+Create Date: 2016-11-18 16:55:06.673334
 
 """
-
-# revision identifiers, used by Alembic.
-revision = 'c608dc708454'
-down_revision = None
-
 from alembic import op
 import sqlalchemy as sa
+
+
+# revision identifiers, used by Alembic.
+revision = '96e63f260b7a'
+down_revision = None
+branch_labels = None
+depends_on = None
 
 
 def upgrade():
@@ -125,7 +127,8 @@ def upgrade():
     sa.Column('feature_image', sa.Text(), nullable=True),
     sa.Column('slug', sa.String(length=255), nullable=True),
     sa.Column('category_id', sa.Integer(), nullable=True),
-    sa.Column('price', sa.Integer(), nullable=True),
+    sa.Column('price', sa.Float(), nullable=True),
+    sa.Column('priceebook', sa.Float(), nullable=True),
     sa.Column('images', sa.Text(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('published_at', sa.TIMESTAMP(), server_default=sa.text(u'CURRENT_TIMESTAMP'), nullable=True),

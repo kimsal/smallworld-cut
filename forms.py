@@ -9,12 +9,8 @@ class PostForm(Form,CKEditor):
    feature_image = FileField("Feature Image")
    short_description = TextAreaField("Short Description")
    images=TextAreaField("Images")
-   price = TextField("Price($)")
-   date = TextField("Date")
-   map = TextAreaField("Map (Optional)")
    category_id = SelectField('Category', choices=[], coerce=int)
-   priceebook =  TextField("Price Ebook",[validators.Required("Please enter your price ebook.")])
-
+  
    submit = SubmitField("Publish")
 
 class CategoryForm(Form):

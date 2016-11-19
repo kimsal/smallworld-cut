@@ -128,8 +128,6 @@ class Post(db.Model):
     feature_image=db.Column(db.Text,nullable=True)
     slug=db.Column(db.String(255),nullable=True,unique=True)
     category_id=db.Column(db.Integer,db.ForeignKey('category.id'),nullable=True)
-    price=db.Column(db.Float,nullable=True)
-    priceebook=db.Column(db.Float,nullable=True)
     images = db.Column(db.Text,nullable=True)
     user_id=db.Column(db.Integer,db.ForeignKey('user_member.id'))
     published_at=db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
@@ -150,7 +148,7 @@ class Post(db.Model):
             price=self.price,
             short_description=self.short_description
             )
-    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',price=0,short_description='',priceebook=''):
+    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',short_description=''):
         self.title = title
         self.slug =slugify(title)
         self.description = description
@@ -159,9 +157,7 @@ class Post(db.Model):
         self.user_id = user_id
         self.images=images
         self.views=views
-        self.price=price
         self.short_description=short_description
-        self.priceebook = priceebook
     def add(post):
         db.session.add(post)
         return db.session.commit()
