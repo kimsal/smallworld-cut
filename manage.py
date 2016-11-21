@@ -1207,11 +1207,11 @@ def admin_search(pagination=1):
 	posts=Post.query.filter((Post.title).match("'%"+search+"%'")).all()#limit(limit).offset(int(int(int(limit)-1)*limit))
 	pagin=math.ceil((Post.query.filter((Post.title).match("'%"+search+"%'")).count())/limit)
 	#return str((posts))
-	pages= Page.query.filter((Page.title).match("'%"+search+"%'"))
+	pages= Page.query.filter((Page.title).match("'%"+search+"%'")).all()	
 	if math.ceil(pagin)%limit != 0:
 		pagin=int(pagin+1)
 	#return str(pagin)
-	return render_template('admin/search.html',pages,pages,search=search,page_name='search',posts=posts,current_pagin=int(pagination),pagin=(int(pagin)))
+	return render_template('admin/search.html',ppp = pages,search=search,page_name='search',posts=posts,current_pagin=int(pagination),pagin=(int(pagin)))
 ############## End send mail #####################
 ######### Personalize Email ###########
 @app.route('/admin/checkemail/<email_id>/<group_id>/<action>/', methods=['POST', 'GET'])

@@ -1,25 +1,55 @@
 {% include template_name+'/header2.html' %}
+
 <div class="container">
 	<h2 style="color: green; text-align:center;">Search result for <b>" {{search}} "</b> </h2>
 	{%for post in posts%}
+	
+	{%if posts|length==0 %}
+		{%if ppp|length==0 %}
+			<p style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: medium; padding-top: 0.33em;">Your search -&nbsp;<span style="font-weight: bold;">
+			{{search}}
+			</span>&nbsp;- did not match any documents.</p>
+			<p style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: medium; margin-top: 1em;">Suggestions:</p>
+			<ul style="margin-right: 0px; margin-bottom: 2em; margin-left: 1.3em; padding: 0px; border: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: medium;">
+				<li style="margin: 0px; padding: 0px; border: 0px;">
+					Make sure all words are spelled correctly.
+				</li>
+				<li style="margin: 0px; padding: 0px; border: 0px;">
+					Try different keywords.
+				</li>
+				<li style="margin: 0px; padding: 0px; border: 0px;">
+					Try more general keywords.
+				</li>
+			</ul>     
+            
+		{%endif%}
+	{%endif%}
 
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	
+
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<a href="/{{post.slug}}">
-			<h3 style="color:green !important">
+			<h4 style="color:green !important;">
 				{{post.title}}
-			</h3>
+			</h4>
 		</a>
 		<a href="/{{post.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;">
 		<span class="searchHighlight" style="border-radius: 0px !important;">
-		{{post.description|safe|truncate(200)}}
+		{{post.description|safe|truncate(400)}}
 		</p>     
             
 	</div>
 	{%endfor%}
-	{%for page in page%}
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-		<h3 style="font-family: Arial, HelveticaNeue-Light, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 1.1; margin-bottom: 10px; font-size: 24px; color: rgb(90, 90, 90); border-radius: 0px !important;"><a href="/{{page.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;"><span class="searchHighlight" style="border-radius: 0px !important;">
-		{{page.description|safe|truncate(200)}}
+	{%for page in ppp %}
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<a href="/{{post.slug}}">
+			<h4 style="color:green !important;">
+				{{page.title}}
+			</h4>
+		</a>
+		<a href="/{{post.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;">
+		<span class="searchHighlight" style="border-radius: 0px !important;">
+		{{page.description|safe|truncate(400)}}
 		</p>     
             
 	</div>
