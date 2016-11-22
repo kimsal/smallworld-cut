@@ -129,7 +129,7 @@
       <div class="form-group">
        
           <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-             {{ form.short_description(class_="form-control",rows="3",placeholder="Short Description") }}
+             {{ form.short_description(class_="form-control",rows="3",placeholder="Short Description or Address for Space") }}
           </div>
       </div>
     </article>
@@ -199,7 +199,13 @@
           </div>
       </div>
     </article>
-   
+   <article class="col-sm-9 col-md-9 col-lg-9">
+      <div class="form-group">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {{ form.map(class_="form-control",rows="3",placeholder="Map") }}
+          </div>
+      </div>
+    </article>
   
    
     <article class="col-sm-9 col-md9 col-lg-9">
@@ -315,6 +321,7 @@ $(".btn-save").click(function(){
      loadOldImages("{{p.images}}");
      $("#short_description").append("{{p.short_description}}");
      $("#price").attr('value',"{{p.price}}");
+      $('#map').html("{{p.map.replace('\n', '').replace('\r','').replace('"',"'")|safe}}");
   });
   //Don't display button browse for feature image
   $('input#feature_image[name="feature_image"]').css('display','none');

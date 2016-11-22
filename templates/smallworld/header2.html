@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>smallworld</title>
+     <link rel="icon" href="/static/admin/images/logo.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Amoogli, Kimsal">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji|Dosis" rel="stylesheet">
@@ -30,7 +28,47 @@
     		color:#0a8;
     	}
     </style>
-    
+    {% if page_name == 'home' %}
+        <title>SmallWorld Cambodi | Start up Cambodia</title>
+        <meta name="description" content=" SmallWorld helps entrepreneurs test, refine, design startup model, build, and launch fast with small capital by providing a share workspace and a supporting community of like-mined people.">
+        <meta name="keywords" content="startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {% elif page_name == 'single' %}
+        {%for post in post_object%}
+            <title>{{post.title}} | SmallWorld</title>
+            <meta name="description" content="startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia{{post.title}}">
+            <meta name="keywords" content="{{post.title}} moogli web publishing and communication plateform, build website, free download template, free template">
+        {%endfor%}
+    {% elif page_name == 'category' %}
+        <title>{{category_name}}|SmallWorld</title>
+        <meta name="description" content="{{category_name}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        <meta name="keywords" content="{{category_name}} , startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {% elif page_name == 'page' %}
+        {%for page in page_object%}
+            <title>{{page.title}}|SmallWorld </title>
+            <meta name="description" content="{{page.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+            <meta name="keywords" content="{{page.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        {%endfor%}
+    {% elif page_name == 'location' %}
+        {%for location in location_object%}
+            <title>{{location.title}}| SmallWorld  </title>
+            <meta name="description" content="{{location.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+            <meta name="keywords" content="{{location.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        {%endfor%}
+    {% elif page_name == 'event' %}
+        {%for event in event_object%}
+            <title>{{event.title}}| SmallWorld </title>
+            <meta name="description" content="{{event.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+            <meta name="keywords" content="{{event.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        {%endfor%}
+    {% elif page_name == "temp" %}
+        <title>{{title}}|SmallWorld </title>
+        <meta name="description" content="{{title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        <meta name="keywords" content="{{title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {%else%}
+        <title>SmallWorld Cambodi | Start up Cambodia</title>
+        <meta name="description" content=" SmallWorld helps entrepreneurs test, refine, design startup model, build, and launch fast with small capital by providing a share workspace and a supporting community of like-mined people.">
+        <meta name="keywords" content="startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {% endif %}
 
 </head>
 
@@ -55,6 +93,7 @@
         <li><a href="/whatsup">WHAT'S UP</a></li>
         <li><a href="/coworking-spaces">SPACE</a></li>
         <li><a href="/members">TEAM</a></li>
+         <li><a href="/blog">BLOG</a></li>
       </ul>
       <form class="navbar-form navbar-right"  action="/search/" method="GET" id="frm" enctype="multipart/form-data">
         <div class="form-group">

@@ -1,0 +1,21 @@
+{% include template_name+'/header2.html' %}
+    <div class="container">
+    <h2 style="color: green; text-align:center;"> Coworking Spaces</h2>
+    <div class="row">
+    {%for post in post_object%}
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
+            <a href="/{{post.slug}}">
+                <section style="margin:5px;">
+                    <img src="{{post.feature_image}}" class="img-responsive" style="margin:5px;width:100%">
+                </section>
+            </a>
+            <center>
+                <h2>{{post.title}}</h2>
+            </center>
+        </div>
+    {%endfor%}
+    </div>
+</div>
+            <div class="col-xs-12 hidden-xs" style="height:240px;"></div>
+        </div>
+{% include template_name+'/footer2.html' %}

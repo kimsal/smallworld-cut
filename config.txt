@@ -1,5 +1,5 @@
 Template="smallworld";
-limit="10";
+limit="15";
 email="kimsalsan12@gmail.com";
 password="";
 name="Kimsal";

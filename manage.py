@@ -206,9 +206,9 @@ def admin_member(pagination=1,action='',slug=''):
 @app.route('/whatsup', methods=['POST', 'GET'])
 @app.route('/whatsup/', methods=['POST', 'GET'])
 def event():
-	events = Event.query.order_by(Event.id.desc()).limit(6)
+	events = Event.query.order_by(Event.id.desc()).limit(10)
 	story = Page.query.filter_by(title='STORIES')
-	return render_template(template+"/whatsup.html",events=events,story=story)
+	return render_template(template+"/whatsup.html",events=events,page_object=story,page_name="page")
 #########  events  ######################
 @app.route('/admin/event', methods=['POST', 'GET'])
 @app.route('/admin/event/', methods=['POST', 'GET'])
@@ -513,7 +513,7 @@ def admin_post_add(slug=""):
 				images=''
 				# return filename
 				if not slug:
-		   			if not file:
+		   			if file:
 		   				images=''
 		   				help=1
 	   					uploaded_files = flask.request.files.getlist("other_image[]")
@@ -530,9 +530,7 @@ def admin_post_add(slug=""):
 			   					help=help+1
 		   				# tmp = Post(request.form['title'],request.form['description'],request.form.get('category_id'),filename,request.cookies.get('blog_id'),file_download,0,images)
 			      #   	status=Post.add(tmp)
-
-			     		print str(images)+" = -------------"
-			        	ob=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,request.form["short_description"])
+			        	ob=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,request.form["short_description"],request.form['map'])
  			        	status=Post.add(ob)
 				        if not status:
 				            flash("Post added successfully")
@@ -543,7 +541,7 @@ def admin_post_add(slug=""):
 
 				elif slug:
 					# return str(request.form["image1"])
-		   			if not file: 
+		   			if file: 
 		   				images=''
 		   				help=1
 	   					uploaded_files = flask.request.files.getlist("other_image[]")
@@ -574,7 +572,7 @@ def admin_post_add(slug=""):
 				   		# return images
 				   		#end keep old images
 				   		# return old_images
-	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'short_description':request.form['short_description'] })
+	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'short_description':request.form['short_description'],'map':request.form['map'] })
 	   					status = db.session.commit()
 		   				if not status:
 		   					flash("Post updated successfully")
@@ -582,7 +580,7 @@ def admin_post_add(slug=""):
 		   			for post in obj:
 		   				tempFileName=post.feature_image
 	   				# filename=tempFileName
-	   				obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],'category_id':request.form['category_id'],'feature_image':filename,'short_description':request.form['short_description'] })
+	   				obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],'category_id':request.form['category_id'],'feature_image':filename,'short_description':request.form['short_description'],'map':request.form['map'] })
 	   				status = db.session.commit()
 	   				if not status:
 	   					flash("Post updated was successfully")
@@ -1275,12 +1273,24 @@ def single(slug='',pagination=1):
 	# return 'd'
 	form=BookingForm()
 	try:
+		if slug=='startups':
+			posts=Post.query.filter_by(category_id=2).order_by(Post.id.desc()).limit(limit).offset(int(int(int(pagination)-1)*limit))
+			pagin=math.ceil((Post.query.filter_by(category_id=2).count())/limit)
+			if((Post.query.filter_by(category_id=2).count())%limit != 0 ):
+				pagin=int(pagin+1)
+			return render_template(template+"/startup.html",current_pagin=int(pagination),posts=posts,pagin=int(pagin))
+
+		if slug=='coworking-spaces':
+			related_posts=''
+			post_object = Post.query.filter_by(category_id=3)
+			return render_template(template+'/space.html',page_name='single',related_posts=related_posts,post_object=post_object)
 		if slug=='members':
 			members= Member.query.all()
 			return render_template(template+'/member.html',members=members)
 		event=Event.query.filter_by(slug=slug)
 		if event.count()>0:
-			return render_template(template+'/event.html',page_name='event',event_object=event)
+			related_events = Event.query.filter(Event.id!=event.first().id).order_by(Event.id.desc()).limit(5)
+			return render_template(template+'/event.html',related_events=related_events,page_name='event',event_object=event)
 
 		post_object=Post.query.filter_by(slug=slug)#.limit(1)
 		if post_object.count()<=0:
@@ -1299,9 +1309,9 @@ def single(slug='',pagination=1):
 					session['amoogli_view'] = (str(session.get('amoogli_view')))+","+slug
 		elif page_object.count()>0:
 			members=Member.query.order_by(Member.id.desc()).all()
-			startup= Page.query.filter_by(title='Startups')
+			startups= Post.query.filter_by(category_id=2).limit(5)
 			spirits = Post.query.filter_by(category_id=3)	
-			return render_template(template+"/page.html",spirits=spirits,startup=startup,members=members,page_name="page",page_object=page_object)
+			return render_template(template+"/page.html",spirits=spirits,startups=startups,members=members,page_name="page",page_object=page_object)
 		else:
 			category=Category.query.filter_by(slug=slug)
 			if category.count()>0:
@@ -1319,8 +1329,6 @@ def single(slug='',pagination=1):
 				if(math.ceil(Post.query.filter_by(category_id=cat_id).count())%limit != 0 ):
 					pagin=int(pagin+1)
 				#return str(limit)
-				if category_name=='Blog':
-					return render_template(template+'/blog.html',page_name='category',category_slug=category_slug,category_name=category_name,posts=posts,pagin=int(pagin),current_pagin=int(pagination))
 				return render_template(template+'/category.html',page_name='category',category_slug=category_slug,category_name=category_name,posts=posts,pagin=int(pagin),current_pagin=int(pagination))
 			
 	except Exception as e:
@@ -1332,6 +1340,15 @@ def single(slug='',pagination=1):
 		cat_id=post.category_id
 	related_posts=Post.query.filter_by(category_id=cat_id).order_by(Post.id.desc()).limit(3)
 	events=Event.query.all()
+	if post_object.first().category_id==1:
+		related_posts=Post.query.filter_by(category_id=1).order_by(Post.id.desc()).limit(3)
+	
+		return render_template(template+'/single-blog.html',events=events,form=form,page_name='single',related_posts=related_posts,post_object=post_object)
+	elif post_object.first().category_id==2:
+		related_posts=Post.query.filter_by(category_id=2).order_by(Post.id.desc()).limit(3)
+	
+		return render_template(template+'/single-blog.html',events=events,form=form,page_name='single',related_posts=related_posts,post_object=post_object)
+	
 	return render_template(template+'/single.html',events=events,form=form,page_name='single',related_posts=related_posts,post_object=post_object)
 @app.route('/category/<slug>')
 @app.route('/category/<slug>/')

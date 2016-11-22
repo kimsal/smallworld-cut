@@ -10,7 +10,8 @@ class PostForm(Form,CKEditor):
    short_description = TextAreaField("Short Description")
    images=TextAreaField("Images")
    category_id = SelectField('Category', choices=[], coerce=int)
-  
+   map = TextAreaField("Description")   
+   
    submit = SubmitField("Publish")
 
 class CategoryForm(Form):

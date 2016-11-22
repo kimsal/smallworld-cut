@@ -2,9 +2,43 @@
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
-        <title> Amoogli web publishing and communication plateform. </title>
-        <meta name="description" content="">
-        <meta name="author" content="">
+        {% if page_name == 'home' %}
+        <title>SmallWorld Cambodi | Start up Cambodia</title>
+        <meta name="description" content=" SmallWorld helps entrepreneurs test, refine, design startup model, build, and launch fast with small capital by providing a share workspace and a supporting community of like-mined people.">
+        <meta name="keywords" content="startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {% elif page_name == 'single' %}
+        {%for post in post_object%}
+            <title>{{post.title}} | SmallWorld</title>
+            <meta name="description" content="startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia{{post.title}}">
+            <meta name="keywords" content="{{post.title}} moogli web publishing and communication plateform, build website, free download template, free template">
+        {%endfor%}
+    {% elif page_name == 'category' %}
+        <title>{{category_name}}|SmallWorld</title>
+        <meta name="description" content="{{category_name}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        <meta name="keywords" content="{{category_name}} , startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {% elif page_name == 'page' %}
+        {%for page in page_object%}
+            <title>{{page.title}}|SmallWorld </title>
+            <meta name="description" content="{{page.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+            <meta name="keywords" content="{{page.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        {%endfor%}
+    {% elif page_name == 'location' %}
+        {%for location in location_object%}
+            <title>{{location.title}}| SmallWorld  </title>
+            <meta name="description" content="{{location.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+            <meta name="keywords" content="{{location.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        {%endfor%}
+    {% elif page_name == 'event' %}
+        {%for event in event_object%}
+            <title>{{event.title}}| SmallWorld </title>
+            <meta name="description" content="{{event.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+            <meta name="keywords" content="{{event.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        {%endfor%}
+    {% elif page_name == "temp" %}
+        <title>{{title}}|SmallWorld </title>
+        <meta name="description" content="{{title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+        <meta name="keywords" content="{{title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
+    {% endif %}
          <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -157,16 +191,16 @@
                             <li>
                                 <a href="/admin/event">Event</a>
                             </li>
-                            <li>
+                           <!--  <li>
                                 <a href="/admin/booking">Booking</a>
-                            </li>
-                            <li>
+                            </li> -->
+                           <!--  <li>
                                 <a href="/admin/contact">Contact</a>
-                            </li>
-                            <li>
+                            </li> -->
+                           <!--  <li>
                                 <a href="/admin/partner">Partner
                                 </a>
-                            </li>
+                            </li> -->
                              <li>
                                 <a href="/admin/member">Member
                                 </a>
@@ -177,9 +211,9 @@
                     <li class="">
                         <a href="#"><i class="fa fa-lg fa-fw fa-cogs"></i> <span class="menu-item-parent">Setting</span></a>
                         <ul>
-                            <li>
+                            <!-- <li>
                                 <a href="/admin/template">Template</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/admin/limit">Limit Post
                                 </a>
@@ -187,12 +221,12 @@
                             <li class="">
                                 <a href="/admin/menu">Menu</a>
                             </li>
-                            <li class="">
+                          <!--   <li class="">
                                 <a href="/admin/social">Social</a>
-                            </li>
-                            <li class="">
+                            </li> -->
+                           <!--  <li class="">
                                 <a href="/admin/earn">Earn Money</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                     <li class="">
