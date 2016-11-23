@@ -11,10 +11,12 @@
 				<h4>{{post.title}}</h4>
 			</div>
 			<p>
-			{{post.description|safe|truncate(600)}}</p>
-			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<center><a href="/{{post.slug}}" class="btn btn-readmore">Read More..</a></center>
+			{{post.description|safe|truncate(400)}}</p>
+			<div class="row">
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<center><a href="/{{post.slug}}" class="btn btn-readmore">Read More..</a></center>
+				</div>
 			</div>
 			
 		</div>
@@ -22,4 +24,5 @@
 
 	</div>
 </div>
+</div></div></div></div></div>
 {% include template_name+'/footer2.html' %}

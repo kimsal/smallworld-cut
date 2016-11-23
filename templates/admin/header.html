@@ -13,29 +13,29 @@
             <meta name="keywords" content="{{post.title}} moogli web publishing and communication plateform, build website, free download template, free template">
         {%endfor%}
     {% elif page_name == 'category' %}
-        <title>{{category_name}}|SmallWorld</title>
+        <title>{{category_name}} | SmallWorld</title>
         <meta name="description" content="{{category_name}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
         <meta name="keywords" content="{{category_name}} , startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
     {% elif page_name == 'page' %}
         {%for page in page_object%}
-            <title>{{page.title}}|SmallWorld </title>
+            <title>{{page.title}} | SmallWorld </title>
             <meta name="description" content="{{page.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
             <meta name="keywords" content="{{page.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
         {%endfor%}
     {% elif page_name == 'location' %}
         {%for location in location_object%}
-            <title>{{location.title}}| SmallWorld  </title>
+            <title>{{location.title}} | SmallWorld  </title>
             <meta name="description" content="{{location.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
             <meta name="keywords" content="{{location.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
         {%endfor%}
     {% elif page_name == 'event' %}
         {%for event in event_object%}
-            <title>{{event.title}}| SmallWorld </title>
+            <title>{{event.title}} | SmallWorld </title>
             <meta name="description" content="{{event.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
             <meta name="keywords" content="{{event.title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
         {%endfor%}
     {% elif page_name == "temp" %}
-        <title>{{title}}|SmallWorld </title>
+        <title>{{title}} | SmallWorld </title>
         <meta name="description" content="{{title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
         <meta name="keywords" content="{{title}}, startup, Smallworld, Cambodia , business, Cambodia starups, technology in cambodia, Startup in Cambodia">
     {% endif %}
@@ -171,7 +171,7 @@
             <nav>
                 <ul>
                     <li class="active">
-                        <a href="/" title="View Site"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">View Site</span></a>
+                        <a href="/" title="View Site" target="_blank"><i class="fa fa-arrow-circle-o-right"></i> <span class="menu-item-parent">View Site</span></a>
                     </li>
                     <li class="active">
                         <a href="/admin" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>

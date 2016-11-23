@@ -2,8 +2,6 @@
 
 <div class="container">
 	<h2 style="color: green; text-align:center;">Search result for <b>" {{search}} "</b> </h2>
-	{%for post in posts%}
-	
 	{%if posts|length==0 %}
 		{%if ppp|length==0 %}
 			<p style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: medium; padding-top: 0.33em;">Your search -&nbsp;<span style="font-weight: bold;">
@@ -25,6 +23,10 @@
 		{%endif%}
 	{%endif%}
 
+
+	{%for post in posts%}
+	
+	
 	
 
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
