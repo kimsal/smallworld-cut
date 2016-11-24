@@ -1309,8 +1309,8 @@ def single(slug='',pagination=1):
 					session['amoogli_view'] = (str(session.get('amoogli_view')))+","+slug
 		elif page_object.count()>0:
 			members=Member.query.order_by(Member.id.desc()).all()
-			startups= Post.query.filter_by(category_id=2).limit(5)
-			spirits = Post.query.filter_by(category_id=3)	
+			startups= Post.query.filter_by(category_id=2).order_by(Partner.id.desc()).limit(5)
+			spirits = Post.query.filter_by(category_id=3).order_by(Partner.id.desc())	
 			return render_template(template+"/page.html",spirits=spirits,startups=startups,members=members,page_name="page",page_object=page_object)
 		else:
 			category=Category.query.filter_by(slug=slug)
