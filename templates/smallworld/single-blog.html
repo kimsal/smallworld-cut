@@ -42,7 +42,7 @@
                 <a href="/{{post.slug}}">
                     <center><h4>{{post.title}} </h4></center>
                     <p style="padding-left:0px;">
-                    {{post.description|safe|truncate(200)}}
+                    {{post.description|striptags|truncate(200)}}
                     </p>
                  </a>
             </li>

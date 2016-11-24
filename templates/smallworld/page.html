@@ -45,7 +45,7 @@
 					<h4>{{p.title}}</h4>
 				</div>
 				<p>
-				{{p.description|safe|truncate(200)}}</p>
+				{{p.description|striptags|truncate(200)}}</p>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 					<center><a href="/{{p.slug}}" class="btn btn-readmore">Read More..</a></center>

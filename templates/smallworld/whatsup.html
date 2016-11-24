@@ -19,7 +19,7 @@
 						</a>
 					</div>
 					<p>
-						{{event.description|truncate(200)|safe	}}
+						{{event.description|striptags|truncate(200)|safe	}}
 					</p>
 				</div>
 				{%endfor%}

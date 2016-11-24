@@ -37,7 +37,7 @@
 		</a>
 		<a href="/{{post.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;">
 		<span class="searchHighlight" style="border-radius: 0px !important;">
-		{{post.description|safe|truncate(400)}}
+		{{post.description|striptags|truncate(400)}}
 		</p>     
             
 	</div>
@@ -51,7 +51,7 @@
 		</a>
 		<a href="/{{post.slug}}" title="Train-the-Trainer Series" style="color: rgb(0, 126, 180); border-radius: 0px !important;">
 		<span class="searchHighlight" style="border-radius: 0px !important;">
-		{{page.description|safe|truncate(400)}}
+		{{page.description|striptags|truncate(400)}}
 		</p>     
             
 	</div>

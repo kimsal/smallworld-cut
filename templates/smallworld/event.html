@@ -33,7 +33,7 @@
 	            <a href="/{{event.slug}}">
 	            	<center><h4>{{event.title}} </h4></center>
 	            	<p style="padding-left:0px;">
-	            	{{event.description|safe|truncate(200)}}
+	            	{{event.description|striptags|truncate(200)}}
 		           	</p>
 		           	<p style="color:gray">
 	           		 	On {{event.date}}
