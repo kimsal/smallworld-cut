@@ -207,8 +207,8 @@ def admin_member(pagination=1,action='',slug=''):
 @app.route('/whatsup/', methods=['POST', 'GET'])
 def event():
 	events = Event.query.order_by(Event.id.desc()).limit(10)
-	story = Page.query.filter_by(title='STORIES')
-	return render_template(template+"/whatsup.html",events=events,page_object=story,page_name="page")
+	blogs = Post.query.filter_by(category_id=1).order_by(Post.id.desc()).limit(10)
+	return render_template(template+"/whatsup.html",events=events,page_name="page",blogs=blogs)
 #########  events  ######################
 @app.route('/admin/event', methods=['POST', 'GET'])
 @app.route('/admin/event/', methods=['POST', 'GET'])
