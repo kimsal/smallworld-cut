@@ -137,7 +137,7 @@ class Post(db.Model):
     user_id=db.Column(db.Integer,db.ForeignKey('user_member.id'))
     published_at=db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
     views = db.Column(db.Integer, nullable=True)
-    map = db.Column(db.Text,nullable=True)
+    # map = db.Column(db.Text,nullable=True)
     bookings=db.relationship('Booking', backref="post", lazy='dynamic')
     # images=db.relationship('Image', backref="post", lazy='dynamic')
     def to_Json(self):
@@ -153,7 +153,7 @@ class Post(db.Model):
             price=self.price,
             short_description=self.short_description
             )
-    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',short_description='',map='',keywords=''):
+    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',short_description='',keywords=''):
         self.title = title
         self.slug =slugify(title)
         self.description = description
@@ -163,7 +163,6 @@ class Post(db.Model):
         self.images=images
         self.views=views
         self.short_description=short_description
-        self.map= map
         self.keywords= keywords
     def add(post):
         db.session.add(post)

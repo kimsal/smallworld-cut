@@ -11,7 +11,7 @@ class PostForm(Form,CKEditor):
    keywords = TextAreaField("Keyword")
    images=TextAreaField("Images")
    category_id = SelectField('Category', choices=[], coerce=int)
-   map = TextAreaField("Description")   
+   # map = TextAreaField("map")   
    submit = SubmitField("Publish")
 
 class CategoryForm(Form):
