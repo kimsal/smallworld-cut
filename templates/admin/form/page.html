@@ -122,6 +122,20 @@
         </div>
       </div>
     </article>
+    <article class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          {{ form.keywords(class="form-control", placeholder="Keywords") }}
+        </div>
+      </div>
+    </article>
+    <article class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          {{ form.short_description(class="form-control", placeholder="Short Description") }}
+        </div>
+      </div>
+    </article>
     <article class="col-sm-9 col-md-9 col-lg-9">
       <!-- Widget ID (each widget will need unique ID)-->
       <div class="jarviswidget jarviswidget-color-blue" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-fullscreenbutton="false" data-widget-sortable="false">
@@ -192,5 +206,7 @@ $(".btn-save").click(function(){
      $('#frm').attr('action','/admin/page/edit/{{p.slug}}/');
      $('.note-editable.custom-scroll').html("{{p.description.replace('\n', '').replace('\r','').replace('"',"'")|safe}}");
     });
+   $('#keywords').html("{{p.keywords|safe}}"); 
+   $('#short_description').html("{{p.short_description|safe}}"); 
  </script>
 {% endfor %}

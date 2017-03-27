@@ -95,6 +95,8 @@ class Category(db.Model):
 class Page(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title= db.Column(db.String(255),nullable=True,unique=True)
+    keywords = db.Column(db.Text,nullable=True)
+    short_description = db.Column(db.Text,nullable=True)
     slug= db.Column(db.String(255),nullable=True)
     description = db.Column(db.Text,nullable=True)
     published_at= db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
@@ -110,10 +112,12 @@ class Page(db.Model):
             description=self.description,
             published_at="{}".format(self.published_at)
             )
-    def __init__(self, title,description):
+    def __init__(self, title,description,keywords='',short_description=''):
         self.title = title
         self.slug =slugify(title)
         self.description=description
+        self.keywords=keywords
+        self.short_description=short_description
     def add(page):
         db.session.add(page)
         return db.session.commit()
@@ -124,6 +128,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255),nullable=True,unique=True)
     description = db.Column(db.Text,nullable=True)
+    keywords = db.Column(db.Text,nullable=True)
     short_description = db.Column(db.Text,nullable=True)
     feature_image=db.Column(db.Text,nullable=True)
     slug=db.Column(db.String(255),nullable=True,unique=True)
@@ -148,7 +153,7 @@ class Post(db.Model):
             price=self.price,
             short_description=self.short_description
             )
-    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',short_description='',map=''):
+    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',short_description='',map='',keywords=''):
         self.title = title
         self.slug =slugify(title)
         self.description = description
@@ -159,6 +164,7 @@ class Post(db.Model):
         self.views=views
         self.short_description=short_description
         self.map= map
+        self.keywords= keywords
     def add(post):
         db.session.add(post)
         return db.session.commit()

@@ -8,17 +8,19 @@ class PostForm(Form,CKEditor):
    description = TextAreaField("Description",[validators.Required("Please enter your description.")])   
    feature_image = FileField("Feature Image")
    short_description = TextAreaField("Short Description")
+   keywords = TextAreaField("Keyword")
    images=TextAreaField("Images")
    category_id = SelectField('Category', choices=[], coerce=int)
    map = TextAreaField("Description")   
-   
    submit = SubmitField("Publish")
 
 class CategoryForm(Form):
    name = TextField("Name",[validators.Required("Please enter category name.")])
 class PageForm(Form,CKEditor):
-	title = TextField("Title",[validators.Required("Please enter your title.")])
-	description = TextAreaField("Description",[])
+  title = TextField("Title",[validators.Required("Please enter your title.")])
+  description = TextAreaField("Description",[])
+  short_description = TextAreaField("Short Description")
+  keywords = TextAreaField("Keyword")
 class UserMemberForm(Form):
    name = TextField("Name",[validators.Required("Please enter your name.")])
    email = TextField("Email",[validators.Required("Please enter your email.")])
