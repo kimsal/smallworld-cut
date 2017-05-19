@@ -15,9 +15,9 @@ from flask_httpauth import HTTPTokenAuth
 from datetime import datetime, timedelta
 from flask_mail import Mail,Message
 import random
-from apscheduler.scheduler import Scheduler
+# from apscheduler.scheduler import Scheduler
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql://blog:blog@localhost:5432/smallworld'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql://blog:blog@localhost:5432/smallworld_v2'
 auth = HTTPTokenAuth(scheme='Token')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
 app.secret_key = 'Hello@AmokCamSmallworld$Cambodia&*&'

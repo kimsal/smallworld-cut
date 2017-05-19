@@ -47,7 +47,7 @@
         {%for page in page_object%}
             <title>{{page.title}} | SmallWorld </title>
             <meta name="description" content="{{page.short_description}}">
-            <meta name="keywords" content="{{page.title}}, {{post.keywords}}">
+            <meta name="keywords" content="{{page.title}}, {{page.keywords}}">
         {%endfor%}
     {% elif page_name == 'location' %}
         {%for location in location_object%}
